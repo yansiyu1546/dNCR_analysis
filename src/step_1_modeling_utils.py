@@ -24,7 +24,7 @@ CONFIG = dict(seed=20261017, outer_folds=5, inner_folds=3, imputations=5,
               boruta_depth=5, boruta_percentile=100, stability_cutoff=0.8,
               trials_per_model=12, target_sensitivity=0.85,
               winsor_quantiles=[0.01,0.99], exclude=[],
-              categorical=['shoushuleixing'],
+              categorical=['Surgery_Type'],
               pair_priority=[['Operation_Time','Anesthesia_Time'],['MOCA_Score','Education']],
               bootstrap=2000, extra_boruta_seeds=10)
 NAMES = ['LR','RF','XGB','ANN','SVM']
@@ -45,9 +45,9 @@ def jsonwrite(path,obj):
 def encoded(a,cols):
     out=[]; groups=[]; labels=[]
     for j,c in enumerate(cols):
-        if c=='shoushuleixing':
+        if c=='Surgery_Type':
             for v in [1,2,3]:
-                out.append((a[:,j]==v).astype(float));groups.append(c);labels.append(f'Surgery_type_{v}')
+                out.append((a[:,j]==v).astype(float));groups.append(c);labels.append(f'Surgery_Type_{v}')
         else:
             out.append(a[:,j]);groups.append(c);labels.append(c)
     return np.asarray(out).T,groups,labels

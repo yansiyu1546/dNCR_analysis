@@ -93,3 +93,9 @@ The sibling `models` directory contains cleaned LR, RF, XGB, ANN, and SVM predic
 pipelines. The SVM pipeline retains observation-level support vectors for the
 five selected predictors. See `../models/README.md` for details. Full analysis execution can generate patient-level intermediate
 artifacts; keep those artifacts private when publishing source code.
+
+## Input variable naming
+
+The surgery-type input column is named `Surgery_Type`. Use this exact column
+name in both development and external input files. It is treated as categorical
+and encoded into indicators for category values 1, 2, and 3.
