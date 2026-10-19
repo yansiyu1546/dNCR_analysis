@@ -1,0 +1,12 @@
+data/
+cache/
+imputations/
+results/
+work/
+__pycache__/
+*.pyc
+*.xlsx
+*.xls
+*.csv
+*.npz
+.Rhistory
