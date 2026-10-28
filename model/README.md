@@ -1,13 +1,8 @@
-# Trained prediction ensembles
-
-The five files contain LR, RF, XGBoost, ANN and RBF SVM models, with five imputation-specific fitted members in each artifact. Use the supplied Python 3.12 environment and `joblib.load`; the gzip compression is detected automatically.
-
-Explicit full training/validation matrices and preprocessing membership arrays have been removed. Fitted imputers, estimator weights, clipping/scaling statistics, aggregate auxiliary fill values, calibration and primary thresholds remain. **SVM support vectors remain as required by its original prediction function.** These coordinates are training-sample features; no claim of model anonymity is made.
-
-Predict from the repository root:
-
-```powershell
+# Trained Prediction Models
+This folder contains five trained prediction models: logistic regression (LR), random forest (RF), XGBoost, artificial neural network (ANN), and support vector machine (SVM). Each model contains five fitted members corresponding to the five imputed datasets.
+The models are saved in `.joblib` format and can be loaded using `joblib.load` in the provided Python environment.
+To generate predictions, run the following command from the repository root:
 python step_1_modeling_utils.py --input new.csv --output predictions.csv --model LR
-```
-
-The five selected predictors are Age, MOCA_Score, Depression, GFR and Operation_Time. See the root README for incomplete-input requirements, units/coding and full-analysis commands. Study data are not included. Use these exported model files rather than the original unfiltered artifacts.
+The five selected predictors are Age, MOCA_Score, Depression, GFR, and Operation_Time. Please refer to the main README for input requirements, variable coding, and instructions for running the analysis.
+To protect patient privacy, the original study datasets and explicit training/validation matrices are not included. The exported models retain the fitted parameters and preprocessing components required for prediction. SVM support vectors are retained because they are necessary for its prediction function and may contain training-sample feature information.
+Please use the exported model files provided in this folder.
